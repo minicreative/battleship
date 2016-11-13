@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Battleship: COMP 426 F16</title>
+        <meta charset="UTF-8">
+        <link href="style.css" type="text/css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="http://www.cs.unc.edu/Courses/comp426-f16/kmp/SuperBattleship/SBConstants.js"></script>
+        <script src="http://www.cs.unc.edu/Courses/comp426-f16/kmp/SuperBattleship/SuperBattleship.js"></script>
+        <script src="http://www.cs.unc.edu/Courses/comp426-f16/kmp/SuperBattleship/DumbAI.js"></script>
+        <script src="toams7AI.js"></script>
+        <script src="main.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Loading View-->
+        <div id="loading">
+            <div class='uil-rolling-css' style='transform:scale(0.6);'><div><div></div><div></div></div></div>
+        </div>
+
+        <!-- Header -->
+        <header><div class="contain">
+            <div class="name">
+                <h1>SuperBattleship</h1>
+            </div>
+            <div class="newgame">
+                <form id="newGame">
+                    <span>Make a new game</span>
+                    <input id="size" type="number" placeholder="Enter grid size">
+                    <input id="turns" type="number" placeholder="Enter turn limit">
+                    <input id="smartAI" name="ai" type="checkbox" class="checkbox"><label for="ai">Smart AI</label>
+                    <input type="submit" class="submit" value="New Game">
+                </form>
+            </div>
+        </div></header>
+
+        <!-- Board Container -->
+        <div class="boardcontain">
+
+            <!-- Board: populated by jQuery -->
+            <div id="board"></div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+
+                <div class="block">
+                    <div class="title">Settings</div>
+                    <div class="content">
+                        <div class="row">
+                            <input id="showVisible" type="checkbox"><span>Show visible enemy ships</span>
+                        </div>
+                        <div class="row">
+                            <input id="showAll" type="checkbox"><span>Show all enemy ships</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <div class="title">Move Your Ship</div>
+                    <div class="content">
+                        <form id="moveShip">
+                            <select id="shipList"></select>
+                            <select id="direction">
+                                <option value="forward">Forward</option>
+                                <option value="backward">Backward</option>
+                                <option value="clockwise">Clockwise</option>
+                                <option value="counter-clockwise">Counter-clockwise</option>
+                            </select>
+                            <input type="submit" value="Move">
+                        </form>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <div class="title">Status</div>
+                    <div class="content">
+                        <div class="row">
+                            Current Player: <span id="currentPlayer"></span>
+                        </div>
+                        <div class="row">
+                            Turn Count: <span id="turnCount"></span>
+                        </div>
+                        <div class="row">
+                            Turn Limit: <span id="turnLimit"></span>
+                        </div>
+                        <div id="log"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>
